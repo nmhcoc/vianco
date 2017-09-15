@@ -1,0 +1,12 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Danh mục nhóm sản phẩm</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card *ngFor='let item of categories' class='card' (click)='onCardClick(item)'>
+        <img src="{{item.image}}" />
+        <div class="card-title">{{item.content}}</div>
+    </ion-card>
+</ion-content>

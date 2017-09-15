@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{data.name}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div class='slider'>
+        <ion-slides pager>
+            <ion-slide *ngFor='let img of data.images'>
+                <img src='{{img}}'>
+            </ion-slide>
+
+        </ion-slides>
+    </div>
+    <h3>{{data.name}}</h3>
+    <p class='price'>{{data.price}} vnd</p>
+    <button ion-button full color='danger'>Đặt mua</button>
+    <ion-segment [(ngModel)]="tab">
+        <ion-segment-button value="info" color='danger'>
+            Thông tin
+        </ion-segment-button>
+        <ion-segment-button value="comment" color='danger'>
+            Đánh giá
+        </ion-segment-button>
+    </ion-segment>
+    <div [ngSwitch]="tab">
+        <ion-list *ngSwitchCase="'info'">
+            <p>{{data.info}}</p>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'comment'">
+            <ion-item *ngFor='let item of comments'>
+                <ion-thumbnail item-start>
+                    <img src="{{item.avatar}}">
+                </ion-thumbnail>
+                <h2>{{item.content}}</h2>
+                <p>{{item.date}}</p>
+            </ion-item>
+        </ion-list>
+
+    </div>
+</ion-content>
