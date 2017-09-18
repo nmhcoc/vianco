@@ -41,7 +41,7 @@ export class CategoriesPage {
         setTimeout(() => {
             loader.dismiss();
             this.navCtrl.push(ItemsPage);
-        }, 1000)
+        }, 0)
     }
 }
 

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
+import { ProfilePage } from '../pages/profile/profile';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -12,21 +12,29 @@ import { CategoriesPage } from '../pages/categories/categories';
 import { ItemsPage } from '../pages/items/items';
 import { DetailPage } from '../pages/detail/detail';
 
+// modal
+import { ConfirmModal } from '../pages/confirm/confirm';
+import { UserInfoPage } from '../pages/userInfo/userInfo';
 
+// services
+import { CommonHelper } from '../shared/commonHelper';
+import { UserService } from '../shared/userService';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    ProfilePage,
     ContactPage,
     HomePage,
     TabsPage,
     LoginPage,
     CategoriesPage,
     ItemsPage,
-    DetailPage
+    DetailPage,
+    ConfirmModal,
+    UserInfoPage
   ],
   imports: [
     BrowserModule,
@@ -35,18 +43,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    ProfilePage,
     ContactPage,
     HomePage,
     TabsPage,
     LoginPage,
     CategoriesPage,
     ItemsPage,
-    DetailPage
+    DetailPage,
+    ConfirmModal,
+    UserInfoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    CommonHelper,
+    UserService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

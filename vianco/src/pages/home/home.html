@@ -1,17 +1,73 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+<ion-header color="primary">
+  <ion-toolbar color="primary">
+    <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+    <ion-buttons start>
+      <button ion-button icon-only class='notification-btn'>
+            <ion-icon name="notifications"></ion-icon>
+            <p class='badge' *ngIf='notification'>{{notification}}</p>
+          </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="tab">
+      <ion-segment-button value="main">
+        Trang chủ
+      </ion-segment-button>
+      <ion-segment-button value="categories">
+        Danh mục
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
+<ion-content>
+  <div [ngSwitch]="tab">
+    <ion-list *ngSwitchCase="'main'">
+      <ion-item-divider color="light">
+        Sản phẩm nổi bật
+        <button ion-button clear item-end (click)='onCardClick()'>Xem thêm</button>
+      </ion-item-divider>
+      <ion-item>
+        <div class='slider'>
+          <ion-slides pager slidesPerView='3' pager='false'>
+            <ion-slide *ngFor='let img of data.images' (click)='onItemClick()'>
+              <img src='{{img}}'>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </ion-item>
+      <ion-item-divider color="light">
+        Có thể bạn quan tâm
+        <button ion-button clear item-end (click)='onCardClick()'>Xem thêm</button>
+      </ion-item-divider>
+      <ion-item>
+        <div class='slider'>
+          <ion-slides pager slidesPerView='3' pager='false'>
+            <ion-slide *ngFor='let img of data.images' (click)='onItemClick()'>
+              <img src='{{img}}'>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </ion-item>
+      <ion-item-divider color="light">
+        Đang giảm giá
+        <button ion-button clear item-end (click)='onCardClick()'>Xem thêm</button>
+      </ion-item-divider>
+      <ion-item>
+        <div class='slider'>
+          <ion-slides pager slidesPerView='3' pager='false'>
+            <ion-slide *ngFor='let img of data.images' (click)='onItemClick()'>
+              <img src='{{img}}'>
+            </ion-slide>
+          </ion-slides>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div *ngSwitchCase="'categories'">
+      <ion-card *ngFor='let item of categories' class='card' (click)='onCardClick(item)'>
+        <img src="{{item.image}}" />
+        <p class="card-title">{{item.content}}</p>
+      </ion-card>
+    </div>
+  </div>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { DetailPage } from '../detail/detail';
 @Component({
     selector: 'page-categories',
@@ -19,7 +19,7 @@ import { DetailPage } from '../detail/detail';
 })
 export class ItemsPage {
     items: Item[];
-    constructor(public navCtrl: NavController, private loadingCtrl: LoadingController) {
+    constructor(public navCtrl: NavController) {
         this.items = [{
             image: 'assets/img/computer.jpg',
             name: 'Máy tính xách tay',
@@ -39,15 +39,7 @@ export class ItemsPage {
     }
 
     onCardClick(card: Item): void {
-
-        let loader = this.loadingCtrl.create({
-            content: "Đang xử lý..."
-        });
-        loader.present();
-        setTimeout(() => {
-            loader.dismiss();
-            this.navCtrl.push(DetailPage);
-        }, 1000)
+        this.navCtrl.push(DetailPage);
     }
 }
 

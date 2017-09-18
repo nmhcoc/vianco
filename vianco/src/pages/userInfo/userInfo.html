@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color='default'>
+    <ion-title>
+      Thông tin cá nhân
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()">
+        Đóng
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <img src="{{data.avatar}}" class='avatar' />
+      </ion-col>
+      <ion-col col-8>
+        <p>Số điện thoại:</p>
+        <p><b>{{data.phone}}</b></p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Họ tên</ion-label>
+      <ion-input type="text" [(ngModel)]='data.name'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Thư điện tử</ion-label>
+      <ion-input type="text" [(ngModel)]='data.email'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Ngày sinh</ion-label>
+      <ion-input type="text" [(ngModel)]='data.birth'></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button full (click)='onSaveClick()' color='primary'>LƯU THÔNG TIN</button>
+</ion-content>
