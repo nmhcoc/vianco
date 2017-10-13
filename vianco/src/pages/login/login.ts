@@ -45,7 +45,7 @@ export class LoginPage {
 
     }
 
-    onLoginClick(): void {
+    onLoginClick=()=> {
 
         let loader = this.loadingCtrl.create({
             content: "Đang xử lý..."
