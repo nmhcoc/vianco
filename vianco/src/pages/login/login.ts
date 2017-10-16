@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { SignupPage } from '../signup/signup';
+import { ForgotPasswordPage } from '../forgot-password/forgot-password';
+
 @Component({
     selector: 'page-login',
     templateUrl: 'login.html',
@@ -8,6 +11,7 @@ import { TabsPage } from '../tabs/tabs';
     .title{
         text-align: center;
         color:white;
+        padding-bottom:50px
     }
     .login-bg{
         background: url(assets/img/login-bg.jpg) no-repeat center center fixed; 
@@ -40,13 +44,19 @@ import { TabsPage } from '../tabs/tabs';
     `]
 })
 export class LoginPage {
-
+    username:string;
+    password:string;
     constructor(public navCtrl: NavController, private loadingCtrl: LoadingController) {
 
     }
-
-    onLoginClick=()=> {
-
+    signup=()=>{
+        this.navCtrl.push(SignupPage);
+    }
+    forgotPassword():void{
+        this.navCtrl.push(ForgotPasswordPage);
+    }
+    signin=()=> {
+        if(!(this.username && this.password)) return alert(this.username);
         let loader = this.loadingCtrl.create({
             content: "Đang xử lý..."
         });

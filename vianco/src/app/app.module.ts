@@ -21,6 +21,9 @@ import { CommonHelper } from '../shared/commonHelper';
 import { UserService } from '../shared/userService';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SignupPage } from '../pages/signup/signup'; 
+import { ForgotPasswordPage } from '../pages/forgot-password/forgot-password'; 
+
 
 @NgModule({
   declarations: [
@@ -34,7 +37,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ItemsPage,
     DetailPage,
     ConfirmModal,
-    UserInfoPage
+    UserInfoPage,
+    SignupPage,
+    ForgotPasswordPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ItemsPage,
     DetailPage,
     ConfirmModal,
-    UserInfoPage
+    UserInfoPage,
+    SignupPage,
+    ForgotPasswordPage
   ],
   providers: [
     StatusBar,

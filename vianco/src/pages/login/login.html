@@ -3,30 +3,31 @@
     <ion-list>
         <ion-item>
             <ion-label floating>Tên đăng nhập</ion-label>
-            <ion-input type="text" value=""></ion-input>
+            <ion-input type="text" [(ngModel)] = 'username'></ion-input>
         </ion-item>
 
         <ion-item>
             <ion-label floating>Mật khẩu</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input type="password" [(ngModel)] ='password'></ion-input>
         </ion-item>
     </ion-list>
+    
     <ion-grid>
         <ion-row>
             <ion-col col-6>
-                <button ion-button full (click)='onLoginClick()' color='danger'>ĐĂNG KÝ</button>
+                <button ion-button full (click)='signup()' color='secondary'  >ĐĂNG KÝ</button>
             </ion-col>
             <ion-col col-6>
-                <button ion-button full (click)='onLoginClick()' color='primary'>ĐĂNG NHẬP</button>
+                <button ion-button full (click)='signin()' color='primary'  >ĐĂNG NHẬP</button>
             </ion-col>
-            <ion-col col-12>
+            <!-- <ion-col col-12>
                 <button ion-button full (click)='onLoginClick()' color='primary' icon-left> 
                     <ion-icon name="facebook"></ion-icon>
                     ĐĂNG NHẬP FACEBOOK
                 </button>
-            </ion-col>
+            </ion-col> -->
         </ion-row>
     </ion-grid>
 
-    <button ion-button full (click)='onLoginClick()' clear color='light'>QUÊN MẬT KHẨU</button>
+    <button ion-button full (click)='forgotPassword()' clear color='primary'>QUÊN MẬT KHẨU</button>
 </ion-content>
