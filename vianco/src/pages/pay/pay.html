@@ -1,0 +1,66 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='primary'>
+    <ion-title>Giỏ hàng</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of list_item">
+      <ion-row class="wrap_item_cart">
+        <ion-col col-3>
+          <img src="{{item.img}}" alt="hinh anh">
+        </ion-col>
+        <ion-col col-8>
+          <div class="wrap_center_item">
+            <h4>{{item.name}}</h4>
+            <p> Đơn giá:
+              <span style="color:red">{{item.cost}}</span>
+            </p>
+            <div class="wrap_amount">
+              <h4 style="float: left; margin-top: 12px;">Số lượng</h4>
+              <button ion-button icon-only class='button_amount_cart' round (click)='changeAmount("-")'>
+                <ion-icon name="remove"></ion-icon>
+              </button>
+              <ion-item class="input_amount_cart">
+                <ion-input type="number" [(ngModel)]='item.amount'></ion-input>
+              </ion-item>
+              <button ion-button icon-only class='button_amount_cart' round (click)='changeAmount("+")'>
+                <ion-icon name="add"></ion-icon>
+              </button>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col style="align-self: center">
+          <ion-icon name="close" class="close_icon_cart"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+    <div style="bottom: 10px;position: absolute;width: 100%;text-align: center;">
+
+      <input type="text" placeholder='Nhập mã ưu đãi' class="wrap_input_voucher" />
+
+    </div>
+  </ion-list>
+ 
+</ion-content>
+
+<ion-footer color='white'>
+
+  <div>
+    <span style="margin:15px 0px 0px 10px;position: absolute;">Tổng 200.000 vnđ</span>
+    <button ion-button round style="float: right" (click)='gotoPayInfo()'>
+      Thanh toán
+    </button>
+  </div>
+</ion-footer>

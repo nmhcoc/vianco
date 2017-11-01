@@ -1,33 +1,37 @@
 <ion-content padding class='login-bg'>
-    <h1 class='title'>VIANCO</h1>
-    <ion-list>
-        <ion-item>
-            <ion-label floating>Tên đăng nhập</ion-label>
-            <ion-input type="text" [(ngModel)] = 'username'></ion-input>
-        </ion-item>
+    <!-- <h1 class='title'>VIANCO</h1>
+    <div style="text-align: center;
+                padding-top: 20px;
+                padding-bottom: 50px;">
+        <img src="../assets/img/viancoLogo.png" alt="logo" style="max-width: 150px;width: 30%">
+    </div> -->
+    <div style="margin-top: 20%;">
+        <ion-list>
+            <span>Tên đăng nhập</span>
+            <ion-input class="input_custom_login" type="text" [(ngModel)]='username'></ion-input>
+            <span style="margin-top: 10px">Mật khẩu</span>
+            <ion-input class="input_custom_login" type="password" [(ngModel)]='password'></ion-input>
+        </ion-list>
+        <button style="text-decoration:underline;color:primary" ion-button full (click)='forgotPassword()' clear>QUÊN MẬT KHẨU</button>
+        <button ion-button full (click)='signin()' color='primary'>ĐĂNG NHẬP</button>
+        
+        <!-- <ion-grid>
+            <ion-row>
+                <ion-col col-6>
+                    <button ion-button full (click)='signin()' color='primary'>ĐĂNG NHẬP</button>
+                </ion-col>
+                <ion-col col-6>
+                    <button ion-button full (click)='signup()' color='secondary'>ĐĂNG KÝ</button>
+                </ion-col>
 
-        <ion-item>
-            <ion-label floating>Mật khẩu</ion-label>
-            <ion-input type="password" [(ngModel)] ='password'></ion-input>
-        </ion-item>
-    </ion-list>
-    
-    <ion-grid>
-        <ion-row>
-            <ion-col col-6>
-                <button ion-button full (click)='signup()' color='secondary'  >ĐĂNG KÝ</button>
-            </ion-col>
-            <ion-col col-6>
-                <button ion-button full (click)='signin()' color='primary'  >ĐĂNG NHẬP</button>
-            </ion-col>
-            <!-- <ion-col col-12>
-                <button ion-button full (click)='onLoginClick()' color='primary' icon-left> 
-                    <ion-icon name="facebook"></ion-icon>
-                    ĐĂNG NHẬP FACEBOOK
-                </button>
-            </ion-col> -->
-        </ion-row>
-    </ion-grid>
+                <ion-col col-12>
+                            <button ion-button full (click)='onLoginClick()' color='primary' icon-left> 
+                                <ion-icon name="facebook"></ion-icon>
+                                ĐĂNG NHẬP FACEBOOK
+                            </button>
+                        </ion-col>
+            </ion-row>
+        </ion-grid> -->
+    </div>
 
-    <button ion-button full (click)='forgotPassword()' clear color='primary'>QUÊN MẬT KHẨU</button>
 </ion-content>

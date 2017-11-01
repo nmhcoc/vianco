@@ -1,0 +1,36 @@
+page-cart {
+
+}
+.button_amount_cart{
+   float: left;
+   height: 30px;
+   width: 30px;
+}
+.input_amount_cart{
+    width: 50px;
+    float: left;
+    border: 1px groove;
+    border-radius: 20px;
+    height: 20px;
+    margin: 0px 10px;
+}
+.wrap_amount{
+    flex-direction: row;
+    float: left;
+    width: 100%
+}
+.wrap_item_cart{
+    border: 1px groove;
+    border-radius: 5px;
+}
+.close_icon_cart{
+    color: red;
+    font-size: 25px
+}
+// .wrap_input_voucher{
+//     width: 200px;
+//     margin: 0px auto;
+//     border: 1px groove;
+//     height: 26px;
+//     border-radius: 18px;
+// }

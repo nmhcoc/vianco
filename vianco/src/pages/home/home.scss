@@ -1,3 +1,79 @@
 page-home {
+    background: red;
+}
 
+.head_menu img{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    // margin: auto;
+    float: left;
+}
+
+.head_menu h4{
+    display: block;
+}
+.head_menu{
+    // text-align: center;
+    padding: 20px 10px 100px 10px;
+    background: rgb(13,164,238);
+    color: white;
+    // border-bottom: 1px groove black;
+}
+.block_item{
+   
+}
+.head_menu p {
+    float: left;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 10px;
+    width:calc(100% - 100px);
+    vertical-align: middle
+}
+.category{
+    border: 1px groove #cdcdcd;
+    border-radius: 5px;
+    margin: 10px;
+    width: calc(100% - 20px)
+}
+.item_home{
+    height: 200px;
+    border: 1px groove;
+    box-shadow: 0px 3px 3px 0px  #cdcdcd;
+    // margin: 10px;
+    border-radius: 3px;
+}
+.price_text{
+    color: red;
+    font-size: 15px;
+}
+.wrap_info{
+    bottom: 12px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    padding-right: 20px;
+}
+.wrap_item_home{
+    padding: 0px
+}
+.wrap_item_home .label{
+    margin: 0px
+}
+.wrap_item_home .item-inner {
+    padding: 0px
+}
+.content_menu{
+    background:linear-gradient(to bottom right, blue, #6ed0fe); 
+    background: #fff;
+}
+.menu_item{
+    background: transparent;
+    color: #0da4ee;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px groove #fefefe;
+    margin-left: 10px;
+    padding-left: 0px;
 }

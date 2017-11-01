@@ -1,0 +1,21 @@
+page-pay {
+
+}
+.wrap_input_voucher{
+    width: 150px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px groove #488aff;
+    text-align: center;
+    color: #6999ec;
+}
+.wrap_input_voucher[placeholder]{
+    color: #6999ec;
+}
+.input-wrapper ion-item {
+     border: 1px solid black !important;
+     box-shadow: none !important 
+}
+.input_amount_cart{
+    padding-left: 10px
+}

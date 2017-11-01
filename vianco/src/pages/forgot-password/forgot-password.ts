@@ -11,7 +11,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-forgot-password',
-  templateUrl: 'forgot-password.html',
+  templateUrl: 'forgot-password.html'
 })
 export class ForgotPasswordPage {
 

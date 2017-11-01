@@ -4,16 +4,15 @@ import { NavController } from 'ionic-angular';
     selector: 'page-detail',
     templateUrl: 'detail.html',
     styles: [`
-    .price{
-        color: red;
-        font-size: 20px;
-    }
+        detail.scss
     `]
 })
 export class DetailPage {
     data: ItemDetail;
     comments: Comment[];
     tab = 'info';
+    amount:number=1;
+    star:number=1;
     constructor(public navCtrl: NavController) {
         this.data = {
             images: ['assets/img/computer.jpg', 'assets/img/printer.jpg', 'assets/img/keyboard.jpg'],
@@ -39,6 +38,19 @@ export class DetailPage {
             content: 'Máy chạy nhanh, ổn định',
             date: '5/8/2018'
         }]
+    }
+    onItemClick():void{
+        this.navCtrl.push(DetailPage);
+    }
+    changeStar(value):void{
+        this.star = value;
+    }
+    changeAmount(value):void{
+        if(value == '+'){
+            this.amount ++;
+        }else if (this.amount >1){
+            this.amount --;
+        }
     }
 }
 

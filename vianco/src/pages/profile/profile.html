@@ -6,7 +6,58 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <button ion-button full (click)='onUserInfoClick()' color='primary' icon-left>Thông tin tài khoản</button>
-  <button ion-button full (click)='onLoginClick()' color='primary' icon-left>Lịch sử mua hàng</button>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img (click)="takePicture()" src="http://img.blogtamsu.vn/2015/07/27/0409533efc0cce12a163d23ef944e735.jpg" class='avatar' />
+        <div (click)="takePicture()" style="width: 48px;
+        margin: auto;
+        padding-left: 16px;
+        display: block;
+        margin-top: -20px;">
+          <img src="assets/img/camera.png" style="margin-left: 20px;" (click)="takePicture()">
+        </div>
+        
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center;color:#cdcdcd">
+        <h3>Nguyen Manh Hung</h3>
+        <p>Đại lý</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div style="padding: 10px">
+    <span>Tên đăng nhập</span>
+    <ion-input type="text" [(ngModel)]='username' class="input_custom_login"></ion-input>
+    <ion-row>
+      <ion-col col-6 style="padding-right:5px">
+        <span>Giới tính</span>
+        <ion-input type="password" [(ngModel)]='rePassword' class="input_custom_login"></ion-input>
+      </ion-col>
+      <ion-col col-6 style="padding-left:5px">
+        <span>Tuổi</span>
+        <ion-input type="date" [(ngModel)]='rePassword' class="input_custom_login" style="height: 45px"></ion-input>
+      </ion-col>
+    </ion-row>
+    <span>Mật khẩu</span>
+    <ion-input type="password" [(ngModel)]='password' class="input_custom_login"></ion-input>
+
+    <span>Tỉnh thành</span>
+    <ion-input type="text" [(ngModel)]='city' class="input_custom_login"></ion-input>
+    <span>Quận huyện</span>
+    <ion-input type="text" [(ngModel)]='phone' class="input_custom_login"></ion-input>
+    <span>Xã phường</span>
+    <ion-item>
+      <ion-select [(ngModel)]="ward" multiple="false">
+        <ion-option value="123"></ion-option>
+
+      </ion-select>
+    </ion-item>
+    <span>Số điện thoại</span>
+    <ion-input type="tel" [(ngModel)]='phone' class="input_custom_login"></ion-input>
+  </div>
+
+  <button ion-button full (click)='onUserInfoClick()' color='primary' icon-left>OK</button>
 </ion-content>

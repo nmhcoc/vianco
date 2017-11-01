@@ -1,0 +1,14 @@
+<div style='height:100%;width:100%;background:rgba(0,0,0,.7); padding-top:100px'>
+  <div style="width:80%; height:auto; margin:0px auto; background:white;border-radius: 2px">
+      <div style="width: 100%;border-bottom: 1px groove #cdcdcd">
+          <h4 style="text-align: center;padding:8px 0px 5px 0px">{{payload.title}}</h4>
+      </div>
+      <div style="text-align: center;min-height: 80px;">
+          <p style="margin: 10px ">{{ payload.content }}</p>
+      </div>
+      <button ion-button full style="bottom: 0px;bottom: 0px;
+      padding: 0px;
+      margin: 0px;
+      border-radius: 0px 0px 2px 2px;" (click)="dismiss()">Đóng</button>
+  </div>
+</div>

@@ -4,4 +4,7 @@ export class User {
     birth: any;
     phone: string;
     email: string;
+    gender:number;
+    address:string;
+    token:string;
 }

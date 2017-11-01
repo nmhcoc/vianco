@@ -1,0 +1,58 @@
+
+    .price{
+        color: red;
+        font-size: 20px;
+    }
+    .input_amount{
+        border:1px groove #cdcdcd;
+        max-width: 50px;
+        height: 40px;
+        border-radius: 20px;
+        text-align: center;
+        display: inline;
+        float: left;
+    }
+    .button_amount{
+        height: 40px;
+        width: 40px;
+        border-radius: 40px;
+        display: inline;
+        float: left;
+        margin: 0px 10px 
+    }
+    .wrap{
+        float: left;
+        align-content: center;
+        align-items: center;
+        width: 100%;
+        margin:10px
+    }
+    .wrap_sale_detail_page{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: url(../assets/img/book_mark.png) bottom center no-repeat;
+        min-height: 75px;
+        min-width: 45px;
+        text-align: center;
+        padding-top: 5px;
+        color: #fff;
+        font-size: 15px;
+    }
+    .head_item_detail_page {
+        padding-left:10px
+    }
+    .head_item_detail_page item-inner{
+        border: 0px;
+    }
+    .head_item_detail_page ul li{
+        padding: 5px 0px 5px 0px
+    }
+    .wrap_star ion-icon{
+        font-size: 30px;
+        margin-left: 5px;
+        color:#ffcb03
+    }
+    .wrap_recent_item-detail ion-label{
+        margin: 0px;
+    }

@@ -4,17 +4,120 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <div class='slider'>
+<ion-content>
+    <div style="border-bottom: 1px groove #cdcdcd;padding:10px">
         <ion-slides pager>
             <ion-slide *ngFor='let img of data.images'>
                 <img src='{{img}}'>
+                <div class="wrap_sale_detail_page">
+                    <!-- <ion-icon name="bookmark" class="bg_sale_detail"></ion-icon> -->
+                    <span class="sale_detail">-5%</span>
+                </div>
             </ion-slide>
 
         </ion-slides>
     </div>
-    <h3>{{data.name}}</h3>
-    <p class='price'>{{data.price}} vnd</p>
+
+    <div class="head_item_detail_page">
+        <p style="font-weight: 500;font-size: 18px">{{ data.name }}</p>
+        <span style="color: #fecf33">4.5 ★</span>
+        <p style="color:red">47.500 vndd</p>
+        <p style="text-decoration: line-through">50.000vnd</p>
+    </div>
+
+
+    <ion-item-divider color="white" style="color:#444;border:1px groove #cdcdcd;border-right:0px;border-left: 0px;font-size: 17px;font-weight: 400">
+        Thông tin sản phẩm
+    </ion-item-divider>
+    <div class="head_item_detail_page">
+        <ul>
+            <li>Tên Sản phẩm: Bóng Compact ES Xoắn 24W</li>
+            <li>Ánh sáng: Trắng</li>
+            <li>Đui: Xoáy/Cài</li>
+            <li>Xuất xứ: Việt Nam</li>
+            <li>MODEL: CFL Xoắn 24W</li>
+            <li>Lumen: 1025 Lm</li>
+            <li>Ra >80, 6500K</li>
+            <li>Tuổi thọ: 8000h</li>
+            <li>Hiệu suất năng lượng: 60.28lm/W</li>
+            <li>AC: 150V - 240V, 50Hz</li>
+
+        </ul>
+    </div>
+    <ion-item-divider color="white" style="color:#444;border:1px groove #cdcdcd;border-right:0px;border-left: 0px;font-size: 17px;font-weight: 400">
+        Hướng dẫn sử dụng
+    </ion-item-divider>
+    <div class="head_item_detail_page">
+        <ul style="padding-right: 10px">
+            <li>Lắp bóng đèn vào đuôi đèn. Lưu ý không lắp bóng đèn khi công tắc điện vào đèn đang bật để an toàn khi lắp bóng
+            </li>
+            <li>Không dùng với công tắc điều chỉnh độ sáng</li>
+            <li>Không lắp bóng đèn ở khu vực ngoài trời có tiếp xúc trực tiếp với nước và độ ẩm cao.</li>
+            <li>Lắp bóng đèn xa nguồn nhiệt để bảo vệ linh kiện điện tử.
+            </li>
+
+        </ul>
+    </div>
+    <ion-item-divider color="white" style="color:#444;border:1px groove #cdcdcd;border-right:0px;border-left: 0px;font-size: 17px;font-weight: 400">
+        Đánh giá - nhận xét
+    </ion-item-divider>
+    <div class="head_item_detail_page" style="padding-bottom: 200px">
+        <p>Đánh giá</p>
+        <div class="wrap_star">
+            <ion-icon name="{{star > 0 ? 'star' : 'star-outline'}}" (click)='changeStar(1)'></ion-icon>
+            <ion-icon name="{{star > 1 ? 'star' : 'star-outline'}}" (click)='changeStar(2)'></ion-icon>
+            <ion-icon name="{{star > 2 ? 'star' : 'star-outline'}}" (click)='changeStar(3)'></ion-icon>
+            <ion-icon name="{{star > 3 ? 'star' : 'star-outline'}}" (click)='changeStar(4)'></ion-icon>
+            <ion-icon name="{{star > 4 ? 'star' : 'star-outline'}}" (click)='changeStar(5)'></ion-icon>
+        </div>
+        <p>Nhận xét</p>
+        <ion-item>
+            <ion-label>Tên của bạn</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Tựa đề bài viết</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Viết nhận xét</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+    </div>
+    <ion-item-divider color="white" style="color:#444;border:1px groove #cdcdcd;border-right:0px;border-left: 0px;font-size: 17px;font-weight: 400">
+        Sản phẩm đã xem
+    </ion-item-divider>
+    <ion-item no-padding class="wrap_recent_item-detail">
+        <ion-slides pager slidesPerView='3' pager='false'>
+            <ion-slide *ngFor='let img of data.images' (click)='onItemClick()' style="padding: 0px">
+                <div [ngClass]="['item_home']">
+                    <div class="wrap_sale_detail_page" style="min-height: 60px;
+                    min-width: 30px;">
+                        <!-- <ion-icon name="bookmark" class="bg_sale_detail"></ion-icon> -->
+                        <span class="sale_detail" style="font-size: 10px">Mới</span>
+                    </div>
+                    <img src='{{img}}'>
+                    <div class="wrap_info">
+                        <p>Aptomat đơn</p>
+                        <span [ngClass]="['price_text']">35.000 vnđ</span>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </ion-item>
+    <!-- <p class='price'>Đơn giá: {{data.price}} vnđ</p>
+    <div class="wrap col-sm-8 col-sm-offset-2">
+        <span style="float:left;
+        margin-top:10px">Số lượng: </span>
+        <button ion-button icon-only class="button_amount" (click)='changeAmount("-")'>
+            <ion-icon name="ios-remove"></ion-icon>
+        </button>
+        <ion-input type="text" [(ngModel)]='amount' class="input_amount" text-center></ion-input>
+        <button ion-button icon-only class="button_amount" (click)='changeAmount("+")'>
+            <ion-icon name="ios-add"></ion-icon>
+        </button>
+    </div>
+    <span>Tổng {{ data.price*amount }}</span>
     <button ion-button full color='danger'>Đặt mua</button>
     <ion-segment [(ngModel)]="tab">
         <ion-segment-button value="info" color='danger'>
@@ -22,6 +125,9 @@
         </ion-segment-button>
         <ion-segment-button value="comment" color='danger'>
             Đánh giá
+        </ion-segment-button>
+        <ion-segment-button value="hdsd" color='danger'>
+            Hướng dẫn sử dụng
         </ion-segment-button>
     </ion-segment>
     <div [ngSwitch]="tab">
@@ -38,6 +144,8 @@
                 <p>{{item.date}}</p>
             </ion-item>
         </ion-list>
-
-    </div>
+        <ion-list *ngSwitchCase="'hdsd'">
+            <p>Huong dan su dung</p>
+        </ion-list>
+    </div> -->
 </ion-content>

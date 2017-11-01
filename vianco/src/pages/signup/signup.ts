@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,LoadingController } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
+import { HomePage } from '../home/home';
+import { ProfilePage } from '../profile/profile';
 
 /**
  * Generated class for the SignupPage page.
@@ -25,15 +26,27 @@ export class SignupPage {
   username:string;
   password:string;
   rePassword:string;
+  name:string;
+  phone:string;
+  birth:Date;
+  gender:string = '1';
+  type:string = 'single';
+
+
 
   signUp():void{
+   
     let loading = this.loadCtrl.create({
       content:'Đang xử lý'
     });
     loading.present();
     setTimeout(() =>{
       loading.dismiss();
-      this.navCtrl.push(TabsPage);
+      this.navCtrl.push(ProfilePage);
     }, 5000);
+  }
+
+  changeType(type):void{
+    this.type = type;
   }
 }

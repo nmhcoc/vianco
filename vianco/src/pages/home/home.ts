@@ -1,7 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
+import { NavController, LoadingController,ModalController } from 'ionic-angular';
 import { ItemsPage } from '../items/items';
 import { DetailPage } from '../detail/detail';
+import { MapPage } from '../map/map';
+import { UserInfoPage } from '../userInfo/userInfo';
+import { PayPage } from '../pay/pay';
+import { ListOrderPage } from '../list-order/list-order';
+import { NewsPage } from '../news/news';
+import { UserService } from '../../shared/userService';
+import { OnInit } from '@angular/core';
+import { CategoryPage } from '../category/category';
+import { SearchPage } from '../search/search';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
@@ -39,13 +48,19 @@ import { DetailPage } from '../detail/detail';
     font-size: 36px;
     padding-bottom: 50%;
   }
-  `]
+  `, 'home.scss']
 })
-export class HomePage {
+export class HomePage implements OnInit {
   data: ItemDetail;
   tab = 'main'; //categories
   categories: Category[];
-  constructor(public navCtrl: NavController, private loadingCtrl: LoadingController) {
+  category: number = 0;
+  constructor(
+    public navCtrl: NavController,
+    private loadingCtrl: LoadingController,
+    private user: UserService,
+    private modalCtrl:ModalController
+  ) {
     this.data = {
       images: ['assets/img/computer.jpg', 'assets/img/printer.jpg', 'assets/img/keyboard.jpg', 'assets/img/computer.jpg', 'assets/img/printer.jpg', 'assets/img/keyboard.jpg'],
       name: 'Máy tính xách tay',
@@ -54,20 +69,67 @@ export class HomePage {
       info: 'Máy tính cấu hình cao cho việc choi game. Chơi tốt các game như dota, lol'
     };
     this.categories = [{
-      image: 'assets/img/computer.jpg',
-      content: 'Máy tính xách tay'
+      image: 'http://www.egro.vn/upload/images/10a-bong-den-compact-philips-5w-3u-vanggenie-warm-white.jpg',
+      content: 'Bóng đèn'
     }, {
-      image: 'assets/img/printer.jpg',
-      content: 'Máy in văn phòng'
+      image: 'http://www.egro.vn/upload/images/10a-bong-den-compact-philips-5w-3u-vanggenie-warm-white.jpg',
+      content: 'Công tắc'
     }, {
-      image: 'assets/img/keyboard.jpg',
-      content: 'Bàn phím chơi game'
-    }]
+      image: 'http://www.egro.vn/upload/images/10a-bong-den-compact-philips-5w-3u-vanggenie-warm-white.jpg',
+      content: 'Aptomat'
+    }, {
+      image: 'http://www.egro.vn/upload/images/10a-bong-den-compact-philips-5w-3u-vanggenie-warm-white.jpg',
+      content: 'Cầu chì'
+    }, {
+      image: 'http://www.egro.vn/upload/images/10a-bong-den-compact-philips-5w-3u-vanggenie-warm-white.jpg',
+      content: 'Cầu dao'
+    }, {
+      image: 'http://www.egro.vn/upload/images/10a-bong-den-compact-philips-5w-3u-vanggenie-warm-white.jpg',
+      content: 'Ổ cắm'
+    }
+
+    ]
   }
   notification = 5;
 
+  ngOnInit() {
+    console.log('====================================');
+    console.log(this.user.getUserInfo());
+    console.log('====================================');
+  }
+  gotoCart(): void {
+    this.navCtrl.push(PayPage);
+  }
+  gotoUserInfo(): void {
+    this.navCtrl.push(UserInfoPage);
+  }
+  gotoMap(): void {
+    this.navCtrl.push(MapPage);
+  }
   onItemClick(): void {
     this.navCtrl.push(DetailPage);
+  }
+  exit(): void {
+    this.navCtrl.pop();
+  }
+  gotoNews(): void {
+    this.navCtrl.push(NewsPage);
+  }
+  gotoListOrder(): void {
+    this.navCtrl.push(ListOrderPage);
+  }
+  gotoCategory(e) {
+    this.category = 0;
+    this.navCtrl.push(CategoryPage);
+  }
+  gotoSearch(){
+    let s = this.modalCtrl.create(SearchPage);
+    s.present();
+    s.onDidDismiss(data=>{
+      console.log('====================================');
+      console.log(data);
+      console.log('====================================');
+    })
   }
   onCardClick(card: Category): void {
 

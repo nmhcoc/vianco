@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar color='default'>
+<ion-header class="nav">
+  <ion-navbar color='primary'>
     <ion-title>
       Thông tin cá nhân
     </ion-title>
@@ -10,32 +10,73 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <ion-grid>
+<ion-content>
+  <ion-grid style="background:#488aff">
     <ion-row>
-      <ion-col col-4>
+      <ion-col>
         <img src="{{data.avatar}}" class='avatar' />
       </ion-col>
-      <ion-col col-8>
-        <p>Số điện thoại:</p>
-        <p><b>{{data.phone}}</b></p>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center;color:white">
+        <h3>Nguyen Manh Hung</h3>
+        <p>Đại lý</p>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-list>
+
+  <ion-list padding>
     <ion-item>
-      <ion-label floating>Họ tên</ion-label>
+
+      <ion-label clearInput>Họ tên</ion-label>
+
+      <ion-icon name="add"></ion-icon>
       <ion-input type="text" [(ngModel)]='data.name'></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Thư điện tử</ion-label>
-      <ion-input type="text" [(ngModel)]='data.email'></ion-input>
+      <ion-label>Ngày sinh</ion-label>
+      <ion-input type="date" value='28-11-1994'></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Ngày sinh</ion-label>
-      <ion-input type="text" [(ngModel)]='data.birth'></ion-input>
+      <ion-label>Giới tính</ion-label>
+      <ion-input type="text" value='Nam'></ion-input>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label>Tỉnh thành</ion-label>
+      <ion-input type="text" value='Hà Nội'></ion-input>
+    </ion-item> -->
+
+    <ion-item style="border-bottom: 1px groove #cdcdcd">
+      <ion-label>Tỉnh thành</ion-label>
+      <ion-select (ionChange)="changeCity($event)" >
+        <ion-option value="{{ p.id }}" *ngFor='let p of location.provinces'  >{{p.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item style="border-bottom: 1px groove #cdcdcd">
+      <ion-label>Quận huyện</ion-label>
+      <ion-select (ionChange)="changeDistricts($event)" >
+        <ion-option value="{{ d.id }}" *ngFor='let d of districts'>{{d.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item style="border-bottom: 1px groove #cdcdcd">
+      <ion-label>Phường xã</ion-label>
+      <ion-select [(ngModel)] = 'ward'>
+        <ion-option value="{{ ward.id }}" *ngFor='let ward of wards'>{{ward.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label>Quận huyện</ion-label>
+      <ion-input type="text" value='Gia lâm'></ion-input>
+    </ion-item> -->
+    <ion-item>
+      <ion-label>Số nhà</ion-label>
+      <ion-input type="text" value='123'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Số điện thoại</ion-label>
+      <ion-input type="text" value='01685577298'></ion-input>
     </ion-item>
   </ion-list>
-  <button ion-button full (click)='onSaveClick()' color='primary'>LƯU THÔNG TIN</button>
+  <button ion-button full (click)='onSaveClick()' color='primary'>CẬP NHẬT THÔNG TIN</button>
 </ion-content>
